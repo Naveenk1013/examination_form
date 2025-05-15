@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>APIHM Student Examination Form</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<!-- Add this inside the <body> tag -->
+<div class="floating-alert">
+  📢 Last date of submission is <strong>17th of May 2025</strong>
+</div>
+
+<style>
+  .floating-alert {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #ffdd57;
+    color: #000;
+    padding: 12px 18px;
+    font-weight: bold;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    font-size: 16px;
+    z-index: 9999;
+    animation: blink 1.5s infinite;
+  }
+
+  @keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.4; }
+  }
+</style>
+
+  <div class="form-container" id="examForm">
+    <h2>Student Examination Form</h2>
+    <form id="studentForm">
+      <label for="courseType">Select Course:</label>
+      <select id="courseType" name="courseType" required>
+        <option value="">-- Select Course --</option>
+        <option>BBA HM CT</option>
+        <option>Special Diploma (1 Year)</option>
+        <option>Diploma (3 Years)</option>
+      </select>
+
+      <label for="name">Full Name:</label>
+      <input type="text" id="name" name="name" required />
+
+      <label for="roll">Roll Number:</label>
+      <input type="text" id="roll" name="roll" required />
+
+      <label for="course">Course Name:</label>
+      <input type="text" id="course" name="course" required />
+
+      <label for="semester">Semester:</label>
+      <select id="semester" name="semester" required>
+        <option value="">Select Semester</option>
+        <option>1st Semester</option>
+        <option>2nd Semester</option>
+        <option>3rd Semester</option>
+        <option>4th Semester</option>
+        <option>5th Semester</option>
+        <option>6th Semester</option>
+      </select>
+
+      <label>Subjects:</label>
+      <div id="subjectFields"></div>
+      <button type="button" class="add-btn" onclick="addSubject()">+ Add Subject</button>
+
+      <label for="email">Student Email ID:</label>
+      <input type="email" id="email" name="email" required />
+
+      <label for="phone">Phone Number:</label>
+      <input type="tel" id="phone" name="phone" required />
+
+      <!-- Timestamp Section -->
+      <label>Date & Time of Submission:</label>
+      <div id="timestamp" class="timestamp-box"></div>
+
+      <div class="footer-stamp">
+        <p><strong>For Office Use Only</strong></p>
+        <p>Institute Stamp and Remarks:</p>
+        <div class="stamp-space"></div>
+      </div>
+
+      <div class="btn-group">
+        <button type="button" onclick="previewPDF()">Preview PDF</button>
+        <button type="button" onclick="downloadPDF()">Download PDF</button>
+      </div>
+    </form>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
